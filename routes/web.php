@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Auth::routes();
+// Auth::routes();
+
+Route::get('/index', 'PageController@index')->name('index');

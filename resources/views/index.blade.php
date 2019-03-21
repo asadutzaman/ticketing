@@ -1,5 +1,5 @@
   @section('title')
-    <title>form</title>
+    <title>Index</title>
   @endsection
   @extends('layouts.master')
   @section('content')
@@ -20,11 +20,96 @@
     <section class="content">
       <div class="row">
         <!-- left column -->
-        <div class="col-md-6">
+        <div class="col-md-12">
           <!-- general form elements -->
            <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Bordered Table</h3>
+              <div class="col-md-12">
+                <!-- Custom Tabs -->
+                <div class="nav-tabs-custom">
+                  <ul class="nav nav-tabs">
+                    <li class=""><a href="#tab_1" data-toggle="tab" aria-expanded="false">Open Ticket</a></li>
+                    <li class="active"><a href="#tab_2" data-toggle="tab" aria-expanded="false">My Ticket</a></li>
+                    <li ><a href="#tab_3" data-toggle="tab" aria-expanded="true">Closed Ticket</a></li>
+                    <li ><a href="#tab_3" data-toggle="tab" aria-expanded="true">Overdue Ticket</a></li>
+                    
+                    <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <div class="tab-pane" id="tab_1">
+                      <div class="container">
+                        <h2>Basic Table</h2>
+                  
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>Firstname</th>
+                              <th>Lastname</th>
+                              <th>Email</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>John</td>
+                              <td>Doe</td>
+                              <td>john@example.com</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_2">
+                      <div class="container">
+                        <h2>Basic Table</h2>
+                  
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>Firstname</th>
+                              <th>Lastname</th>
+                              <th>Email</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>John</td>
+                              <td>Doe</td>
+                              <td>john@example.com</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane active" id="tab_3">
+                      <div class="container">
+                        <h2>Basic Table</h2>
+                  
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>Firstname</th>
+                              <th>Lastname</th>
+                              <th>Email</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>John</td>
+                              <td>Doe</td>
+                              <td>john@example.com</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                  </div>
+                  <!-- /.tab-content -->
+                </div>
+                <!-- nav-tabs-custom -->
+              </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -36,71 +121,6 @@
           <!-- /.box -->
         </div>
         <!--/.col (left) -->
-        <!-- right column -->
-        <div class="col-md-6">
-          <!-- Horizontal Form -->
-          <div class="box box-danger">
-            <div class="box-header">
-              <h3 class="box-title">Condensed Full Width Table</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body no-padding">
-              <table class="table table-condensed">
-                <tr>
-                  <th style="width: 10px">#</th>
-                  <th>Task</th>
-                  <th>Progress</th>
-                  <th style="width: 40px">Label</th>
-                </tr>
-                <tr>
-                  <td>1.</td>
-                  <td>Update software</td>
-                  <td>
-                    <div class="progress progress-xs">
-                      <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-red">55%</span></td>
-                </tr>
-                <tr>
-                  <td>2.</td>
-                  <td>Clean database</td>
-                  <td>
-                    <div class="progress progress-xs">
-                      <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-yellow">70%</span></td>
-                </tr>
-                <tr>
-                  <td>3.</td>
-                  <td>Cron job running</td>
-                  <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-light-blue">30%</span></td>
-                </tr>
-                <tr>
-                  <td>4.</td>
-                  <td>Fix and squish bugs</td>
-                  <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-green">90%</span></td>
-                </tr>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-          <!-- general form elements disabled -->
-          <!-- /.box -->
-        </div>
-        <!--/.col (right) -->
       </div>
       <!-- /.row -->
     </section>

@@ -25,11 +25,7 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
-      <li><a href="{{ route('form') }}" ><i class="fa fa-edit"></i><span> Forms</a></span></li>
-      <!--<li><a href=""><i class="fa fa-table"></i> <span>Catagory</span></a></li>-->
-      <li><a href="{{ route('query') }}"><i class="fa fa-table"></i> <span>Admin</span></a></li>
-      <li><a href="{{ route('ticket') }}"><i class="fa fa-table"></i> <span>IT</span></a></li>
-      <li><a href="{{ route('uproduct') }}"><i class="fa fa-table"></i> <span>HR</span></a></li>
+      <li><a href="" ><i class="fa fa-dashboaard"></i><span> Index</a></span></li>
     </ul>
   </section>
   <!-- /.sidebar -->
