@@ -25,7 +25,8 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
-      <li><a href="" ><i class="fa fa-dashboaard"></i><span> Index</a></span></li>
+      <li><a href="{{ route('index') }}" ><i class="fa fa-dashboaard"></i><span> Index</a></span></li>
+      <li><a href="{{ route('ticket') }}" ><i class="fa fa-dashboaard"></i><span> Ticket</a></span></li>
     </ul>
   </section>
   <!-- /.sidebar -->

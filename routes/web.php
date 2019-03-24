@@ -18,3 +18,4 @@ Route::get('/', function () {
 // Auth::routes();
 
 Route::get('/index', 'PageController@index')->name('index');
+Route::get('/ticket', 'PageController@ticket')->name('ticket');

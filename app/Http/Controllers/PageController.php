@@ -15,7 +15,10 @@ class PageController extends Controller
     {
         return view('index');
     }
-
+    public function ticket()
+    {
+        return view('ticket');
+    }
     /**
      * Show the form for creating a new resource.
      *
