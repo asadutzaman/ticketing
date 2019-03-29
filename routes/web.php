@@ -11,11 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+
+
+
+
+Auth::routes();
+
+
+Route::group(['middleware' => ["auth"]],function(){
+    Route::get('/', 'TicketController@index')->name('index');
+    //Route::get('/home', 'TicketController@index')->name('home');
+    Route::resource('/ticket', 'TicketController');
 });
 
-// Auth::routes();
-
-Route::get('/index', 'PageController@index')->name('index');
-Route::get('/ticket', 'PageController@ticket')->name('ticket');
