@@ -54,20 +54,17 @@
                                     <label>File Upload</label>
                                     <input type="file" id="exampleInputFile">
                                 </div>
-
                             </div>
                             <div class="col-md-6">    
-                                    <label for="pwd">Details:</label>          
-                                    <textarea name="editor1"></textarea>
-                                    <script>
-                                            CKEDITOR.replace( 'editor1' );
-                                    </script>
-                                    <br>
-                                    <button type="button" class="btn btn-primary pull-right">Create Ticket</button>
+                                <label for="pwd">Details:</label>          
+                                <textarea name="editor1"></textarea>
+                                <script>
+                                    CKEDITOR.replace( 'editor1' );
+                                </script>
+                                <br>
+                                <button type="button" class="btn btn-primary pull-right">Create Ticket</button>
                             </div>    
-                        </div>        
-                        
-                        
+                        </div>
                     </div>
                 </div>
             </div>

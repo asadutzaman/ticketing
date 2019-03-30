@@ -86,7 +86,7 @@ class TicketController extends Controller
 
     public function customerview()
     {
-        // return list of tickets
+        // Create Ticket
         return view('ticket.customer'); 
     }
 }
