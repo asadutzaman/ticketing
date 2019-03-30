@@ -24,3 +24,4 @@ Route::group(['middleware' => ["auth"]],function(){
     Route::resource('/ticket', 'TicketController');
 });
 
+Route::get('/logout', 'Auth\LoginController@logout');
