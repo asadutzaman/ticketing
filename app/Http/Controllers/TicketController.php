@@ -83,4 +83,10 @@ class TicketController extends Controller
     {
         //
     }
+
+    public function customerview()
+    {
+        // return list of tickets
+        return view('ticket.customer'); 
+    }
 }

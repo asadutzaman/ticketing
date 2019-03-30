@@ -20,7 +20,7 @@ Auth::routes();
 
 Route::group(['middleware' => ["auth"]],function(){
     Route::get('/', 'TicketController@index')->name('index');
-    //Route::get('/home', 'TicketController@index')->name('home');
+    Route::get('/customerview', 'TicketController@customerview');
     Route::resource('/ticket', 'TicketController');
 });
 
