@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TicketController extends Controller
+class TicketCotroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,7 @@ class TicketController extends Controller
      */
     public function index()
     {
-        // return list of tickets
-        return view('ticket.index'); 
+        //
     }
 
     /**
@@ -24,8 +23,7 @@ class TicketController extends Controller
      */
     public function create()
     {
-        // ticket creation form
-        return view('ticket.create'); 
+        //
     }
 
     /**
@@ -82,11 +80,5 @@ class TicketController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function customerview()
-    {
-        // Create Ticket
-        return view('ticket.customer'); 
     }
 }
