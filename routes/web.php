@@ -14,9 +14,10 @@
 Auth::routes();
 
 Route::group(['middleware' => ["auth"]],function(){
-    Route::get('/', 'TicketController@index')->name('index');
-    Route::get('/customerview', 'TicketController@customerview');
+    Route::get('/', 'HomeController@index')->name('index');
+    Route::get('/customerview', 'TicketController@customerview')->name('customerview');
     Route::resource('/ticket', 'TicketController');
+    Route::resource('/fetch', 'FetchController');
 });
 
 Route::get('/logout', 'Auth\LoginController@logout');
