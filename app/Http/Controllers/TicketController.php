@@ -14,6 +14,7 @@ class TicketController extends Controller
     public function index()
     {
         //
+        return view('ticket.create');
     }
 
     /**
@@ -45,7 +46,8 @@ class TicketController extends Controller
      */
     public function show($id)
     {
-        //
+        //Show ticket details
+        return view('ticket.index');
     }
 
     /**
@@ -80,5 +82,14 @@ class TicketController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    /**
+      *Return custoner's ticcket creation form
+    */
+
+    public function customerview(){
+      return view('ticket.customer');
     }
 }
