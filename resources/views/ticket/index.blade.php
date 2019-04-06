@@ -28,32 +28,38 @@
                 <!-- Custom Tabs -->
                 <div class="nav-tabs-custom">
                   <ul class="nav nav-tabs">
-                    <li class=""><a href="#tab_1" data-toggle="tab" aria-expanded="false">Open Ticket</a></li>
-                    <li class="active"><a href="#tab_2" data-toggle="tab" aria-expanded="false">My Ticket</a></li>
+                    <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Open Ticket</a></li>
+                    <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">My Ticket</a></li>
                     <li ><a href="#tab_3" data-toggle="tab" aria-expanded="true">Closed Ticket</a></li>
-                    <li ><a href="#tab_3" data-toggle="tab" aria-expanded="true">Overdue Ticket</a></li>
-                    
+                    <li ><a href="#tab_4" data-toggle="tab" aria-expanded="true">Overdue Ticket</a></li>
+
                     <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
                   </ul>
                   <div class="tab-content">
                     <div class="tab-pane" id="tab_1">
                       <div class="container">
                         <h2>Basic Table</h2>
-                  
+
                         <table class="table">
                           <thead>
                             <tr>
-                              <th>Firstname</th>
-                              <th>Lastname</th>
-                              <th>Email</th>
+                              <th>Ticket ID</th>
+                              <th>Subject</th>
+                              <th>Ticket Initiator</th>
+                              <th>Time</th>
+                              <th>Status</th>
                             </tr>
                           </thead>
                           <tbody>
+                            @foreach($openTickets as $key => $value)
                             <tr>
-                              <td>John</td>
-                              <td>Doe</td>
-                              <td>john@example.com</td>
+                              <td>{{$value->code}}</td>
+                              <td>{{$value->subject}}</td>
+                              <td>{{$value->initiator}}</td>
+                              <td>{{$value->created_at}}</td>
+                              <td>{{$value->status}}</td>
                             </tr>
+                            @endforeach
                           </tbody>
                         </table>
                       </div>
@@ -62,7 +68,7 @@
                     <div class="tab-pane" id="tab_2">
                       <div class="container">
                         <h2>Basic Table</h2>
-                  
+
                         <table class="table">
                           <thead>
                             <tr>
@@ -85,7 +91,7 @@
                     <div class="tab-pane active" id="tab_3">
                       <div class="container">
                         <h2>Basic Table</h2>
-                  
+
                         <table class="table">
                           <thead>
                             <tr>
@@ -113,7 +119,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              
+
             </div>
             <!-- /.box-body -->
           </div>
