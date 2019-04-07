@@ -17,6 +17,14 @@ Route::group(['middleware' => ["auth"]],function(){
     Route::get('/', 'TicketController@index')->name('index');
     Route::get('/customerview', 'TicketController@customerview');
     Route::resource('/ticket', 'TicketController');
+    
 });
+Route::get('facebook', function () {
+    return view('facebook');
+});
+Route::get('auth/facebook', 'Auth\FacebookController@redirectToFacebook');
+Route::get('auth/facebook/callback', 'Auth\FacebookController@handleFacebookCallback');
+
+//Route::get('/customerview', 'TicketController@customerview');
 
 Route::get('/logout', 'Auth\LoginController@logout');
