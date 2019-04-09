@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Ticket;
 
 class TicketController extends Controller
 {
@@ -13,7 +14,9 @@ class TicketController extends Controller
      */
     public function index()
     {
-        //
+        //Fetch open Createts
+        $openTickets = Ticket::all();
+        return view('ticket.index', compact('openTickets'));
     }
 
     /**
@@ -45,7 +48,8 @@ class TicketController extends Controller
      */
     public function show($id)
     {
-        //
+        //Show ticket details
+        return view('ticket.index');
     }
 
     /**
@@ -80,5 +84,14 @@ class TicketController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    /**
+      *Return custoner's ticcket creation form
+    */
+
+    public function customerview(){
+      return view('ticket.customer');
     }
 }
