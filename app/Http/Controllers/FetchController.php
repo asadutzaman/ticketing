@@ -26,8 +26,8 @@ class FetchController extends Controller
       /* connect to gmail */
       //$hostname = '{imap.gmail.com:993/imap/ssl}INBOX';
       $hostname = '{imap.gmail.com:993/ssl/novalidate-cert}[Gmail]/All Mail';
-      $username = 'viparvez@gmail.com';
-      $password = 'suJANa53535326@4916120503030409';
+      $username = 'sirajum.monir@bexcom.net';
+      $password = 'suJANa53535326';
 
       /* try to connect */
       $inbox = imap_open($hostname,$username,$password) or die('Cannot connect to Gmail: ' . imap_last_error());
@@ -43,18 +43,21 @@ class FetchController extends Controller
 
           /* put the newest emails on top */
           rsort($emails);
-          $interator = 1;
+          $interator = 0;
           /* for every email... */
           foreach($emails as $email_number) {
               $interator ++;
+              /*
               if ($interator == 3) {
                 break;
-              }
+              }*/
+
+              $mailArr = [];
+
               /* get information specific to this email */
               $overview = imap_fetch_overview($inbox,$email_number,0);
               $message = imap_fetchbody($inbox,$email_number,2);
               $structure = imap_fetchstructure($inbox,$email_number);
-
 
                $attachments = array();
                  if(isset($structure->parts) && count($structure->parts)) {
@@ -111,14 +114,21 @@ class FetchController extends Controller
               //$output.= '</div></br>';
 
               /* output the email body */
-              $output.= '<div class="body">'.$message.'</div>';
+              //$output.= '<div class="body">'.$message.'</div>';
+
+              $mailArr[$interator]['from'] = $overview[0]->from;
+              $mailArr[$interator]['subject'] = $overview[0]->subject;
+              $mailArr[$interator]['body'] = $message;
+
           }
 
-          //echo $output;
+          //$output = json_encode($mailArr);
       }
 
       /* close the connection */
       imap_close($inbox);
+
+      return $mailArr;
     }
 
     /**

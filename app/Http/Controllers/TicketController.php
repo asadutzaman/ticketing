@@ -49,7 +49,8 @@ class TicketController extends Controller
     public function show($id)
     {
         //Show ticket details
-        return view('ticket.index');
+        $ticket = Ticket::where(['id' => $id])->first();
+        return view('ticket.show', compact('ticket'));
     }
 
     /**

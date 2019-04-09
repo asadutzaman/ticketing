@@ -32,15 +32,13 @@
                     <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">My Ticket</a></li>
                     <li ><a href="#tab_3" data-toggle="tab" aria-expanded="true">Closed Ticket</a></li>
                     <li ><a href="#tab_4" data-toggle="tab" aria-expanded="true">Overdue Ticket</a></li>
-
-                    <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
                   </ul>
-                  <div class="tab-content">
+                  <div class="tab-content" style="overflow: scroll;">
                     <div class="tab-pane" id="tab_1">
                       <div class="container">
                         <h2>Basic Table</h2>
 
-                        <table class="table">
+                        <table class="table table-bordered">
                           <thead>
                             <tr>
                               <th>Ticket ID</th>
@@ -52,8 +50,8 @@
                           </thead>
                           <tbody>
                             @foreach($openTickets as $key => $value)
-                            <tr>
-                              <td>{{$value->code}}</td>
+                            <tr>  
+                              <td><a href="{{route('ticket.show', $value->id)}}">{{$value->code}}</a></td>
                               <td>{{$value->subject}}</td>
                               <td>{{$value->initiator}}</td>
                               <td>{{$value->created_at}}</td>

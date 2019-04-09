@@ -14,10 +14,10 @@
 Auth::routes();
 
 Route::group(['middleware' => ["auth"]],function(){
-    Route::get('/', 'HomeController@index')->name('index');
+    Route::get('/', 'TicketController@index')->name('home');
     Route::get('/customerview', 'TicketController@customerview')->name('customerview');
     Route::resource('/ticket', 'TicketController');
-    Route::resource('/fetch', 'FetchController');
 });
 
+Route::resource('/fetch', 'FetchController');
 Route::get('/logout', 'Auth\LoginController@logout');
