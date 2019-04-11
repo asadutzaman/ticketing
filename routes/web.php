@@ -13,9 +13,9 @@
 
 Auth::routes();
 
-Route::group(['middleware' => ["auth"]],function(){
-    Route::get('/', 'HomeController@index')->name('index');
-    Route::get('/customerview', 'TicketController@customerview')->name('customerview');
+Route::group(['middleware' => ["auth"]],function(){									//this is for authentication	
+    Route::get('/', 'HomeController@index')->name('index');							// this is for home page controller
+    Route::get('/customerview', 'TicketController@customerview')->name('customerview');	// this is for customer view
     Route::resource('/ticket', 'TicketController');
     Route::resource('/fetch', 'FetchController');
 });
