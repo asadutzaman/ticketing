@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Validator;
-use Auth;
+use Illuminate\Support\Facades\DB;
 use App\Ticket;
+use Auth;
+use Validator;
 
 class TicketController extends Controller
 {
@@ -39,7 +40,55 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'category' => 'required|numeric',
+            'subject' => 'required|max:255',
+            'body'   => 'required',
+            'file' => 'max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            return Redirect::back()->withErrors($validator);
+            //return response()->json(['error'=>$validator->errors()->all()]);
+        }
+
+        $ticketCode = time().rand(10,100);
+
+        DB::beginTransaction();
+        
+        try {
+            
+            if($request->hasFile('file')) {
+              
+               $file = $request->file('file');
+               $name = $ticketCode.$file->getClientOriginalExtension();
+               $file->move(public_path().'/attachments', $name);
+            } 
+
+            $id = DB::table('tickets')->insertGetId(
+                [
+                    'code' => $ticketCode,
+                    'subject' => $request->subject,
+                    'body' => $request->body,
+                    //'category_id'   => $request->category,
+                    'status' => 'OPEN',
+                    'initiator'   => Auth::user()->email,
+                    'priority' => 'Normal',
+                    'source' => 'Customer Portal',
+                    'created_at' => date('Y-m-d h:i:s'),
+                    'updated_at' => date('Y-m-d h:i:s'),
+                    'createdbyuser_id' => Auth::user()->id,
+                    'updatedbyuser_id' => Auth::user()->id,
+                ]
+            );
+
+            DB::commit();
+            return response()->json(['success'=>'Created New Record.']);
+   
+        } catch (\Exception $e) {
+          DB::rollback();
+          return response()->json(['error'=>array('Could not add client')]);
+        }
     }
 
     /**
