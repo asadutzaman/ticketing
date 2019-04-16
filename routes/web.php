@@ -17,7 +17,7 @@ Route::group(['middleware' => ["auth"]],function(){
     Route::get('/', 'TicketController@index')->name('home');
     Route::get('/customerview', 'TicketController@customerview')->name('customerview');
     Route::resource('/ticket', 'TicketController');
+    Route::get('/logout', 'Auth\LoginController@logout');
 });
 
 Route::resource('/fetch', 'FetchController');
-Route::get('/logout', 'Auth\LoginController@logout');
