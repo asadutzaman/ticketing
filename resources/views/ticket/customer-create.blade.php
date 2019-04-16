@@ -35,7 +35,13 @@
                     <!-- /.box-header -->
                     <div class="box-body pad">
                         <div class="row">
+                            @if(session()->has('message'))
+                                <div class="alert alert-success">
+                                    {{ session()->get('message') }}
+                                </div>
+                            @endif
                             <form name="ticket-creation" method="POST" action="{{route('ticket.store')}}" enctype="multipart/form-data">
+                                {{csrf_field()}}
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Subject</label>
@@ -46,24 +52,36 @@
                                             <option>option 4</option>
                                             <option>option 5</option>
                                         </select>
+                                        @if ($errors->has('category'))
+                                            <div class="error">{{ $errors->first('category') }}</div>
+                                        @endif
                                     </div>
                                     <div class="form-group">
-                                        <label for="pwd">Subject:</label>
+                                        <label for="subject">Subject:</label>
                                         <input type="text" class="form-control" id="subject" name="subject">
+                                        @if ($errors->has('subject'))
+                                            <div class="error">{{ $errors->first('subject') }}</div>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label>File Upload</label>
                                         <input type="file" id="exampleInputFile" name="file">
+                                        @if ($errors->has('file'))
+                                            <div class="error">{{ $errors->first('file') }}</div>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-6">    
                                     <label for="pwd">Details:</label>          
-                                    <textarea name="editor1" name="details"></textarea>
+                                    <textarea name="body"></textarea>
                                     <script>
-                                        CKEDITOR.replace( 'editor1' );
+                                        CKEDITOR.replace( 'body' );
                                     </script>
+                                    @if ($errors->has('body'))
+                                        <div class="error">{{ $errors->first('body') }}</div>
+                                    @endif
                                     <br>
-                                    <button type="button" class="btn btn-primary pull-right">Create Ticket</button>
+                                    <button type="submit" class="btn btn-primary pull-right">Create Ticket</button>
                                 </div>    
                             </form>
                         </div>

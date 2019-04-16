@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use App\Ticket;
 use Auth;
 use Validator;
@@ -41,7 +42,7 @@ class TicketController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'category' => 'required|numeric',
+            'category' => 'required',
             'subject' => 'required|max:255',
             'body'   => 'required',
             'file' => 'max:2048',
@@ -49,7 +50,6 @@ class TicketController extends Controller
 
         if ($validator->fails()) {
             return Redirect::back()->withErrors($validator);
-            //return response()->json(['error'=>$validator->errors()->all()]);
         }
 
         $ticketCode = time().rand(10,100);
@@ -83,7 +83,7 @@ class TicketController extends Controller
             );
 
             DB::commit();
-            return response()->json(['success'=>'Created New Record.']);
+            return redirect()->back()->with('message', "Ticket: $ticketCode has been created!");
    
         } catch (\Exception $e) {
           DB::rollback();

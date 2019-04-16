@@ -52,7 +52,7 @@
 
         <div class="social-auth-links text-center">
             <p>- OR -</p>
-            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
+            <a href="{{ url('auth/facebook') }}" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
                 Facebook</a>
         </div>
         <!-- /.social-auth-links -->
@@ -87,4 +87,3 @@
 <script src="{{url('/')}}/public/dist/js/demo.js"></script>
 </body>
 </html>
-
