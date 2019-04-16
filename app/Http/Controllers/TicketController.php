@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
+use Auth;
 use App\Ticket;
 
 class TicketController extends Controller
@@ -26,7 +28,7 @@ class TicketController extends Controller
      */
     public function create()
     {
-        //
+        return view('ticket.customer-create');
     }
 
     /**
