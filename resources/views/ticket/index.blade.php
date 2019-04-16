@@ -1,3 +1,4 @@
+//this is ticket main page
 @section('title')
     <title>Index</title>
   @endsection
