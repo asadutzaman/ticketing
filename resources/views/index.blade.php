@@ -1,3 +1,4 @@
+//this is index page 
   @section('title')
     <title>Index</title>
   @endsection
