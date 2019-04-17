@@ -82,6 +82,16 @@ class TicketController extends Controller
                 ]
             );
 
+            DB::table('ticketleads')->insert([
+                'lead' => $request->body,
+                'leadtype' => 'ORIGINAL_LEAD',
+                'ticket_id' => $id,
+                'created_at' => date('Y-m-d h:i:s'),
+                'updated_at' => date('Y-m-d h:i:s'),
+                'createdbyuser_id' => Auth::user()->id,
+                'updatedbyuser_id' => Auth::user()->id,
+            ]);
+
             DB::commit();
             return redirect()->back()->with('message', "Ticket: $ticketCode has been created!");
    

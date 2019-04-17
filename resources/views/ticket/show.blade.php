@@ -93,13 +93,26 @@
           <!-- general form elements -->
            <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Comment</h3>
+              <h3 class="box-title">Ticket Leads</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <div class="row">
                 <div class="col-md-12">
-                    With supporting text below as a natural lead-in to additional content.
+                  @foreach($ticket->Leads as $lead)
+                    @if($lead->leadtype == 'ORIGINAL_LEAD')  
+                      @php
+                        echo "<h5 style='text-align: right; color: blue'><i>Original Ticket</i></h5><br>";
+                        echo $lead->lead;
+                      @endphp
+                    @elseif($lead->leadtype == 'COMMENT')  
+                      @php
+                        echo "<h5 style='text-align: right; color: red'><i>".$lead->Createdby->name."</i> <span style='color:black'>replied on ".$lead->created_at."</span></h5> <br>";
+                        echo $lead->lead;
+                      @endphp
+                    @else
+                    @endif
+                  @endforeach
                 </div>
               </div>
             </div>
@@ -112,15 +125,27 @@
                 <div class="box-header">
                   <!-- /. tools -->
                 </div>
+                @if(session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('message') }}
+                    </div>
+                @endif
                 <!-- /.box-header -->
-                <div class="box-body pad">
-                  <textarea name="editor1"></textarea>
-                <script>
-                        CKEDITOR.replace( 'editor1' );
-                </script>
-                <br>
-                <button type="button" class="btn btn-primary">Submit</button>
-                </div>
+                <form name="comment_form" action="{{route('ticketlead.store')}}" method="POST">
+                  {{csrf_field()}}
+                  <input type="hidden" name="ticket_id" value="{{$ticket->id}}">
+                  <div class="box-body pad">
+                    <textarea name="comment"></textarea>
+                    <script>
+                            CKEDITOR.replace( 'comment' );
+                    </script>
+                    @if ($errors->has('comment'))
+                        <div class="error">{{ $errors->first('comment') }}</div>
+                    @endif
+                    <br>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </form>
               </div>
         </div>
         <!--/.col (left) -->
