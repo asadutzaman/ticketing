@@ -51,4 +51,5 @@ class User extends Authenticatable
     public function Updatedby() {
         return $this->belongsTo('App\User', 'updatedbyuser_id');
     }
+
 }
