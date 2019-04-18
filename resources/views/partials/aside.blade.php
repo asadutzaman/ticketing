@@ -35,7 +35,7 @@
           </span>
         </a>
         <ul class="treeview-menu" style="display: none;">
-          <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> User List</a></li>
+          <li><a href="{{route('user.index')}}"><i class="fa fa-circle-o"></i> User List</a></li>
           <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Create User</a></li>
         </ul>
       </li>

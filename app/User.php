@@ -43,4 +43,15 @@ class User extends Authenticatable
 
         return $check;
     }
+<<<<<<< HEAD
+=======
+
+    public function Createdby() {
+        return $this->belongsTo('App\User', 'createdbyuser_id');
+    }
+
+    public function Updatedby() {
+        return $this->belongsTo('App\User', 'updatedbyuser_id');
+    }
+>>>>>>> parvez
 }
