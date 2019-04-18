@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,9 +9,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Auth::routes();
-
 Route::group(['middleware' => ["auth"]],function(){
     Route::get('/', 'TicketController@index')->name('home');
     //Route::get('/customerview', 'TicketController@customerview')->name('customerview');
@@ -26,5 +23,9 @@ Route::get('facebook', function () {
 });
 Route::get('auth/facebook', 'Auth\FacebookController@redirectToFacebook');
 Route::get('auth/facebook/callback', 'Auth\FacebookController@handleFacebookCallback');
+<<<<<<< HEAD
 
 //Route::get('/customerview', 'TicketController@customerview');
+=======
+//Route::get('/customerview', 'TicketController@customerview');
+>>>>>>> d86f9493e69aba5c1c0a8d7fbeae8f239a8349af

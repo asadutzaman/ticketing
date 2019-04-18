@@ -127,6 +127,113 @@
         <!--/.col (left) -->
       </div>
       <!-- /.row -->
+
+      <!-- //////////Customer Replay////////// -->
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+          <!-- general form elements -->
+           <div class="box box-success">
+           <div class="pull-left">
+              &nbsp; &nbsp; &nbsp;
+              Customer: Asad
+          </div>
+          <div class="pull-right">
+              Time:12-12-2019 &nbsp; &nbsp; &nbsp;
+            </div>
+            <br>
+              <hr>
+            <div class="box-header with-border">
+              <div class="col-md-12">
+                <!-- Custom Tabs -->
+                llll
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          <!-- /.box -->
+        </div>
+        <!--/.col (left) -->
+      </div>
+      <!-- /.row -->
+      <!-- //////////////// -->
+
+       <!-- //////////Engineer Replay////////// -->
+       <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+             <div class="box box-normal">
+             <div class="pull-left">
+                &nbsp; &nbsp; &nbsp;
+                Engineer: Asad
+            </div>
+            <div class="pull-right">
+                Time:12-12-2019 &nbsp; &nbsp; &nbsp;
+              </div>
+              <br>
+              <hr>
+              <div class="box-header with-border">
+                <div class="col-md-12">
+                  <!-- Custom Tabs -->
+                  llll
+                </div>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+  
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+            <!-- /.box -->
+          </div>
+          <!--/.col (left) -->
+        </div>
+        <!-- /.row -->
+        <!-- //////////////// -->
+
+         <!-- //////////Internal Note Replay////////// -->
+      <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+             <div class="box box-info">
+             <div class="pull-left">
+                &nbsp; &nbsp; &nbsp;
+                Internal Note: Asad
+            </div>
+            <div class="pull-right">
+                Time:12-12-2019 &nbsp; &nbsp; &nbsp;
+              </div>
+              <br>
+              <hr>
+              <div class="box-header with-border">
+                <div class="col-md-12">
+                  <!-- Custom Tabs -->
+                  So, I guess there must be a /vendor/autoload.php file somewhere in my computer (I have installed composer and ran composer require phpmailer/phpmailer).
+
+So, I looked for this file using: dir /s autoload.php in the Windows command line, and found one here: C:\Windows\SysWOW64\vendor\autoload.php,
+                </div>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+  
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+            <!-- /.box -->
+          </div>
+          <!--/.col (left) -->
+        </div>
+        <!-- /.row -->
+        <!-- //////////////// -->
     </section>
     <!-- /.content -->
   </div>
