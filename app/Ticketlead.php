@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ticket extends Model
+class Ticketlead extends Model
 {
 
-	public function Leads() {
-    	return $this->hasMany('App\Ticketlead', 'ticket_id');
+	public function Ticket() {
+    	return $this->belongsTo('App\Ticket', 'ticket_id');
     }
 
     public function Createdby() {
@@ -18,6 +18,5 @@ class Ticket extends Model
     public function Updatedby() {
     	return $this->belongsTo('App\User', 'updatedbyuser_id');
     }
-
 
 }

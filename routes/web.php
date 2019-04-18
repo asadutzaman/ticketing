@@ -14,10 +14,17 @@
 Auth::routes();
 
 Route::group(['middleware' => ["auth"]],function(){
-    Route::get('/', 'HomeController@index')->name('index');
-    Route::get('/customerview', 'TicketController@customerview')->name('customerview');
+    Route::get('/', 'TicketController@index')->name('home');
+    //Route::get('/customerview', 'TicketController@customerview')->name('customerview');
     Route::resource('/ticket', 'TicketController');
-    Route::resource('/fetch', 'FetchController');
+    Route::get('/logout', 'Auth\LoginController@logout');
+    Route::resource('/ticketlead', 'TicketleadController');
+    
 });
+Route::get('facebook', function () {
+    return view('facebook');
+});
+Route::get('auth/facebook', 'Auth\FacebookController@redirectToFacebook');
+Route::get('auth/facebook/callback', 'Auth\FacebookController@handleFacebookCallback');
 
-Route::get('/logout', 'Auth\LoginController@logout');
+//Route::get('/customerview', 'TicketController@customerview');
