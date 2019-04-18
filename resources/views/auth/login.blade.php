@@ -87,4 +87,3 @@
 <script src="{{url('/')}}/public/dist/js/demo.js"></script>
 </body>
 </html>
-

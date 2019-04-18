@@ -1,3 +1,4 @@
 1. Add category_id to the tickets Schema
 2. [Update imap_fetch with any package]
 3. Should we add deleted column for tickets
+4. Priority will be based on ticket category and priority column in tickets table should be default
