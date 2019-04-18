@@ -101,15 +101,46 @@
                 <div class="col-md-12">
                   @foreach($ticket->Leads as $lead)
                     @if($lead->leadtype == 'ORIGINAL_LEAD')  
-                      @php
-                        echo "<h5 style='text-align: right; color: blue'><i>Original Ticket</i></h5><br>";
-                        echo $lead->lead;
-                      @endphp
+                      <div class='row'>
+                        <div class='col-md-12'>
+                           <div class='box box-normal'>
+                           <div class='pull-left'>
+                              <b style="color: green">ORIGINAL TICKET</b>
+                           </div>
+                            <br>
+                            <hr>
+                            <div class='box-header with-border'>
+                              <div class='col-md-12'>
+                              @php
+                                echo $lead->lead;
+                              @endphp
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     @elseif($lead->leadtype == 'COMMENT')  
-                      @php
-                        echo "<h5 style='text-align: right; color: red'><i>".$lead->Createdby->name."</i> <span style='color:black'>replied on ".$lead->created_at."</span></h5> <br>";
-                        echo $lead->lead;
-                      @endphp
+                      <div class='row'>
+                        <div class='col-md-12'>
+                           <div class='box box-normal'>
+                           <div class='pull-left'>
+                              <b style="color: blue">{{$lead->Createdby->name}}</b>
+                           </div>
+                           <div class="pull-right">
+                              Time: @php echo $lead->created_at; @endphp
+                           </div>
+                            <br>
+                            <hr>
+                            <div class='box-header with-border'>
+                              <div class='col-md-12'>
+                              @php
+                                echo $lead->lead;
+                              @endphp
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     @else
                     @endif
                   @endforeach

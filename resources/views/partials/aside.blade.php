@@ -26,8 +26,7 @@
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
       <li><a href="{{ route('ticket.index') }}" ><i class="fa fa-dashboaard"></i><span> Index</a></span></li>
-      <li><a href="{{ route('ticket.create') }}" ><i class="fa fa-dashboaard"></i><span> Ticket</a></span></li>
-      <li><a href="{{ url('customerview') }}" ><i class="fa fa-dashboaard"></i><span> Customr Create Ticket</a></span></li>
+      <li><a href="{{ route('ticket.create') }}" ><i class="fa fa-dashboaard"></i><span>Create New Ticket</a></span></li>
       <li class="treeview">
         <a href="#">
           <i class="fa fa"></i> <span>User Management</span>

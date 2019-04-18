@@ -15,9 +15,10 @@ Auth::routes();
 
 Route::group(['middleware' => ["auth"]],function(){
     Route::get('/', 'TicketController@index')->name('home');
-    Route::get('/customerview', 'TicketController@customerview')->name('customerview');
+    //Route::get('/customerview', 'TicketController@customerview')->name('customerview');
     Route::resource('/ticket', 'TicketController');
     Route::get('/logout', 'Auth\LoginController@logout');
+    Route::resource('/ticketlead', 'TicketleadController');
     
 });
 Route::get('facebook', function () {
