@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ticketlead extends Model
 {
-    public function Ticket() {
+
+	public function Ticket() {
     	return $this->belongsTo('App\Ticket', 'ticket_id');
     }
 
@@ -17,4 +18,5 @@ class Ticketlead extends Model
     public function Updatedby() {
     	return $this->belongsTo('App\User', 'updatedbyuser_id');
     }
+
 }
