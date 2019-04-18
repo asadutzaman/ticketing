@@ -21,14 +21,3 @@ Route::get('facebook', function () {
     return view('facebook');
 });
 Route::get('auth/facebook', 'Auth\FacebookController@redirectToFacebook');
-<<<<<<< HEAD
-Route::get('auth/facebook/callback', 'Auth\FacebookController@handleFacebookCallback');
-<<<<<<< HEAD
-
-//Route::get('/customerview', 'TicketController@customerview');
-=======
-//Route::get('/customerview', 'TicketController@customerview');
->>>>>>> d86f9493e69aba5c1c0a8d7fbeae8f239a8349af
-=======
-Route::get('auth/facebook/callback', 'Auth\FacebookController@handleFacebookCallback');
->>>>>>> parvez
