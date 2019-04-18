@@ -37,35 +37,36 @@
                               <!-- full name -->
                               <div class="form-group">
                                   <label for="fullname">Fullname:</label>
-                                  <input type="text" class="form-control" id="fullname" name="fullname">
+                                  <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name">
                                   @if ($errors->has('fullname'))
                                       <div class="error">{{ $errors->first('fullname') }}</div>
                                   @endif
                               </div>
+                              
                               <!-- email -->
                               <div class="form-group">
                                   <label for="email">Email:</label>
-                                  <input type="text" class="form-control" id="email" name="email">
+                                  <input type="text" class="form-control" id="email" name="email" placeholder="Email">
                                   @if ($errors->has('email'))
                                       <div class="error">{{ $errors->first('email') }}</div>
                                   @endif
                               </div>
-                              <!-- passowrd -->
-                              <div class="form-group">
-                                  <label for="password">Password:</label>
-                                  <input type="text" class="form-control" id="password" name="password">
+                              
+
+                              <div class="form-group has-feedback">
+                                  <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required placeholder="Password">
+                                  <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                                   @if ($errors->has('password'))
-                                      <div class="error">{{ $errors->first('password') }}</div>
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $errors->first('password') }}</strong>
+                                      </span>
                                   @endif
                               </div>
-                              <!-- varify password -->
-                              <div class="form-group">
-                                  <label for="password">Retype Password:</label>
-                                  <input type="text" class="form-control" id="password" name="password">
-                                  @if ($errors->has('password'))
-                                      <div class="error">{{ $errors->first('password') }}</div>
-                                  @endif
+                              <div class="form-group has-feedback">
+                                  <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Retype password">
+                                  <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                               </div>
+
                               <!-- department -->
                               <div class="form-group">
                                   <label>Department</label>
@@ -89,7 +90,7 @@
                                   @endif
                               </div>
                               <br>
-                              <button type="submit" class="btn btn-primary pull-right">Create</button>
+                              <button type="submit" class="btn btn-primary pull-right">CREATE</button>
                           </div>    
                       </form>
                       </div>
