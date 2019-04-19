@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Auth;
-use validator;
 use App\User;
 
 class UserController extends Controller
@@ -40,11 +41,37 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password'   => 'required|min:6|confirmed',
         ]);
+
+        if ($validator->fails()) {
+            return Redirect::back()->withErrors($validator);
+        }
+
+        DB::beginTransaction();
+        
+        try {
+
+            $id = DB::table('users')->insertGetId(
+                [
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'password' => Hash::make($request->password),
+                    'created_at' => date('Y-m-d h:i:s'),
+                    'updated_at' => date('Y-m-d h:i:s'),
+                ]
+            );
+
+            DB::commit();
+            return redirect()->back()->with('message', "User added");
+   
+        } catch (\Exception $e) {
+          DB::rollback();
+          return response()->json(['error'=>array('Could not add user')]);
+        }   
     }
 
     /**

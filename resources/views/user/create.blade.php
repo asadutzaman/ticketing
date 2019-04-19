@@ -30,16 +30,20 @@
                   <div class="tab-content" style="overflow: scroll;">
                       <div class="container">
                         <h2>Users</h2>
-                        
-                        <form name="ticket-creation" method="POST" action="#" enctype="multipart/form-data">
+                            @if(session()->has('message'))
+                                <div class="alert alert-success">
+                                    {{ session()->get('message') }}
+                                </div>
+                            @endif
+                        <form name="ticket-creation" method="POST" action="{{ route('user.store') }}"enctype="multipart/form-data">
                           {{csrf_field()}}
                           <div class="col-md-6">
                               <!-- full name -->
                               <div class="form-group">
-                                  <label for="fullname">Fullname:</label>
-                                  <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name">
-                                  @if ($errors->has('fullname'))
-                                      <div class="error">{{ $errors->first('fullname') }}</div>
+                                  <label for="name">Fullname:</label>
+                                  <input type="text" class="form-control" id="fullname" name="name" placeholder="Full Name">
+                                  @if ($errors->has('name'))
+                                      <div class="error">{{ $errors->first('name') }}</div>
                                   @endif
                               </div>
                               
